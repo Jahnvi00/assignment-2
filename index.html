@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+   <audio id="sound1" src="Round1.ogg" preload="auto"></audio>
+  <button onclick="document.getElementById('sound1').play();">Play
+  it</button>
+    
+    <section>
+        <aside id="lifelines">
+            <button>50:50</button>
+            <button>Ask Audience</button>
+            <button>Phone a Friend</button>
+            <br>
+            <button @click="beginGame">Play</button>
+        </aside>
+        <main id="jahnvi">
+            <div id="top">
+                <h1>{{currentQ().question}}</h1>
+            </div>
+            <div id="bottom">
+                <div class="flex">
+                    <button @click="isAnswerCorrect" data-key="65" data-index="0">A: {{ possibleAnswers(0) }} </button>
+                    <button @click="isAnswerCorrect" data-key="66" data-index="1">B: {{ possibleAnswers(1) }}</button>
+                </div>
+                <div class="flex">
+                    <button @click="isAnswerCorrect" data-key="67" data-index="2">C: {{ possibleAnswers(2) }}</button>
+                    <button @click="isAnswerCorrect" data-key="68" data-index="3">D: {{ possibleAnswers(3) }}</button>
+                </div>
+            </div>
+        </main>
+        <aside id="score" v-for="items in items">
+            <ul>
+                <li>15 - $1,000,000</li>
+                <li>14 - $500,000</li>
+                <li>13 - $250,000</li>
+                <li>12 - $100,000</li>
+                <li>11 - $50,000</li>
+                <li>10 - $25,000</li>
+                <li>9 - $16,000</li>
+                <li>8 - $8,000</li>
+                <li>7 - $4,000</li>
+                <li>6 - $2,000</li>
+                <li>5 - $1,000</li>
+                <li>4 - $500</li>
+                <li>3 - $300</li>
+                <li>2 - $200</li>
+                <li>1 - $100</li>
+            </ul>
+        </aside>
+    </section>
+    <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.11/lodash.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>
